@@ -72,7 +72,7 @@ impl MqttClient {
         let mut ret_val;
         loop {
             let payload = payload.clone();
-            ret_val = self._publish(topic, false, qos, payload, None);
+            ret_val = self._publish(topic, true, qos, payload, None);
             if let Err(Error::TrySend(ref e)) = ret_val {
                 match e {
                     // break immediately if rx is dropped
